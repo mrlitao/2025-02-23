@@ -37,6 +37,11 @@ router.beforeEach((to, from, next) => {
     next();
     return
   }
+  const token = localStorage.getItem("token");
+  if (!token) {
+    next(LOGIN_PATH);
+    return
+  }
   // 路由守卫此处校验
   next();
 })
