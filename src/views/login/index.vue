@@ -2,20 +2,18 @@
 import { ref, shallowRef } from 'vue'
 import useUserStore from "@/stores//modules/user.js"
 // apis
-import http from "@/apis/index.js"
 import { getCsrfCookie } from "@/apis/app.js"
 
 const userStore = useUserStore()
 
 getCsrfCookie().then(response => {
   console.log({ response });
-  
-})
-const formRef = shallowRef()
+});
+const formRef = shallowRef();
 const formObject = ref({
   email: "test@example.com",
   password: "password"
-})
+});
                                           `                                         `
 const rules = {
   email: [
@@ -26,15 +24,14 @@ const rules = {
     { required: true, message: "请输入密码", trigger: "blur" },
     { min: 3, max: 10, message: "长度在 3 到 10 个字符", trigger: "blur" }
   ]
-}
+};
 
 const loginHandler = () => {
   formRef.value.validate((valid) => {
     if (!valid) return
     userStore.loginHandler(formObject.value)
   })
-
-}
+};
 </script>
 
 <template>
