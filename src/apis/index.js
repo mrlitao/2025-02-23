@@ -43,7 +43,6 @@ service.interceptors.response.use(
   error => {
     console.log("Error Cause", error, error.cause);
     const { response, message } = error;
-    tryHideFullScreenLoading();
     // 请求超时 && 网络错误单独判断，没有 response
     if (message && message.indexOf("timeout") !== -1) ElMessage.error("请求超时！请您稍后重试");
     if (message && message.indexOf("Network Error") !== -1) ElMessage.error("网络错误！请您稍后重试");
