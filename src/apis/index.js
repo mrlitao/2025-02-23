@@ -49,7 +49,7 @@ service.interceptors.response.use(
     // 根据服务器响应的错误状态码，做不同的处理
 
     // 服务器结果都没有返回(可能服务器错误可能客户端断网)，断网处理:可以跳转到断网页面
-    if (!window.navigator.onLine) router.replace("/500").then();
+    // if (!window.navigator.onLine) router.replace("/500").then();
     console.log("??");
     return Promise.reject(error);
   }
