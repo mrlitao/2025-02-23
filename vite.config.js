@@ -6,6 +6,7 @@ import vue from '@vitejs/plugin-vue'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [vue()],
+  base: "2025-02-23",
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),
